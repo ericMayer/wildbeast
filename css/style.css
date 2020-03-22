@@ -22,6 +22,10 @@ img {
     max-width: 100%;
 }
 
+* {
+    box-sizing: border-box; /* não irá somar bordas, padding, etc ao tamanho já definido do item */
+}
+
 /* Fim Reset */
 
 /* Grid Geral */
@@ -56,3 +60,42 @@ img {
 }
 
 /* Fim Grid Geral */
+
+/* Header */
+
+.header {
+    background: linear-gradient(135deg, #8844ee, #B07DFB); /* criando um gradiente entre as cores de 135 graus*/
+    padding: 30px; /* preenchimento que será o mesmo tamanho que o gutter do site */
+    display: grid; /* dizendo que irá utilizar o gridlayout */
+    grid-template-columns: 1fr auto; /* dizendo que o logo irá ter o tamanho de 1fr e que o menu será automático o tamanho */
+    align-items: center; /* alinhando ao centro os itens na vertical */
+}
+
+.logo {
+    max-width: 200px; /* tamanho máximo do logo será 200px */
+}
+
+.header nav ul {
+    display: flex; /* definindo que a lista será flexbox para que fique lado a lado */
+    flex-wrap: wrap; /* quando não couber mais irá quebrar linha */
+}
+
+.header nav a {
+    display: block; /* adicionando display block pois irá influenciar no tamanho do a, por isso é alterado de inline para block */
+    padding: 10px; /* aumentando área de contato para o mobile */
+    color: #fff;
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, .1); /* criando um background que irá usar principalmente a cor de fundo, opacidade de 10% */
+    transition: 0.1s; /* criando uma transição nos a para que quando passar o mouse ter mais fluidez na mudança */
+    border-radius: 6px; /* criando as bordas arredondadas */
+}
+
+.header nav a:hover { /* quando passar o mouse por cima */
+    background: rgba(0, 0, 0, .5); /* opacidade de 50% */
+}
+
+.header nav li + li { /* adjacente irá sempre pegar depois do primeiro li  */
+    margin-left: 30px; /* adicionado margem que irá ser no segundo item li */
+}
+
+/* Fim Header */
