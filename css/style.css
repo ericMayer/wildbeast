@@ -1,3 +1,58 @@
-img {
-    max-width: 100px;
+/* Reset */
+
+body, p, ul, li, h1, blockquote {
+    padding: 0px;
+    margin: 0px;
+} 
+
+body {
+    font-family: 'Vollkorn', Georgia, serif;
 }
+
+ul {
+    list-style: none; /* tirando a bolinha que  veem do lado da lista */
+}
+
+a {
+    text-decoration: none; /* tirando sublinhado dos links */
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Fim Reset */
+
+/* Grid Geral */
+
+.estrutura {
+    display: grid; /* dizendo que irá usar a visualização do grid layout */
+    grid-template-columns: minmax(160px, 1fr) 3fr 300px;/* dizendo que irá ter 3 colunas o site, uma para a sidenav, uma para content e outra para anúncio, a primeira coluna irá ter no mínimo 160px e no máximo 1fr (unidade de medida fracional que é de acordo com o espaço que têm no grid), 3fr o content terá 3 vezes mais o tamanho do que o um 1fr, os anúncios terão no máximo 300px */
+    grid-template-areas: 
+        "header header header"
+        "sidenav conteudo anuncios"
+        "footer footer footer"; /* criando as áreas principais do site, onde primeiro virá o cabeçalho depois a sidenav, depois conteudo e anuncio, por último o footer */
+}
+
+.header {
+    grid-area: header; /* definindo a area do header */
+}
+
+.sidenav {
+    grid-area: sidenav;
+}
+
+.content {
+    grid-area: conteudo;
+}
+
+.anuncios {
+    grid-area: anuncios;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+/* Fim Grid Geral */
