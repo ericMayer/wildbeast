@@ -39,31 +39,13 @@ img {
         "footer footer footer"; /* criando as áreas principais do site, onde primeiro virá o cabeçalho depois a sidenav, depois conteudo e anuncio, por último o footer */
 }
 
-.header {
-    grid-area: header; /* definindo a area do header */
-}
-
-.sidenav {
-    grid-area: sidenav;
-}
-
-.content {
-    grid-area: conteudo;
-}
-
-.anuncios {
-    grid-area: anuncios;
-}
-
-.footer {
-    grid-area: footer;
-}
-
 /* Fim Grid Geral */
 
 /* Header */
 
 .header {
+    grid-area: header; /* definindo a area do header */
+
     background: linear-gradient(135deg, #8844ee, #B07DFB); /* criando um gradiente entre as cores de 135 graus*/
     padding: 30px; /* preenchimento que será o mesmo tamanho que o gutter do site */
     display: grid; /* dizendo que irá utilizar o gridlayout */
@@ -99,3 +81,56 @@ img {
 }
 
 /* Fim Header */
+
+/* Sidenav */
+
+.sidenav {
+    grid-area: sidenav;
+    background-color: #FAFBFC;
+    padding: 30px; /* preenchimento padrão no mesmo valor do gutter */
+}
+
+.sidenav li a {
+    display: block; /* alterando para display block, para poder influenciar no tamanho */
+    min-width: 60px;
+    max-width: 100px;
+    margin: 0 auto 30px auto;
+    background-color: #fff;
+    box-sizing: unset; /* tirando o box-sizing, pois se ficar com ele o paddingo irá somar no tamanho min ou max de width e não somar com esses valores */
+    padding: 20px;
+
+    border-radius: 6px;
+    box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, .15); /* primeiro distãncia da sombra na horizontal, segundo valor a distância na vertical, o terceiro é o blur o quanto borrada a sombra deve ser e o quarto é o tamanho da sombra, isso influencia na visualização dos outros itens */
+
+    transition: 0.1s ease-out; /* será uma transição suave e rápida */
+}
+
+.sidenav li a:hover {
+    background-color: #B07DFB;
+}
+
+/* Fim Sidenav */
+
+/* Conteúdo */
+
+.content {
+    grid-area: conteudo;
+}
+
+/* Fim Conteúdo */
+
+/* Anúncios */
+
+.anuncios {
+    grid-area: anuncios;
+}
+
+/* Fim Anúncios */
+
+/* Footer */
+
+.footer {
+    grid-area: footer;
+}
+
+/* Fim Footer */
