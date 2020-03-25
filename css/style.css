@@ -20,6 +20,8 @@ a {
 img {
     display: block;
     max-width: 100%;
+    border-radius: 6px;
+    width: 100%; /* imagem se expandindo o máximo possível, mas ainda mantém a responsividade, por causa do max-width */
 }
 
 * {
@@ -46,7 +48,8 @@ img {
 .header {
     grid-area: header; /* definindo a area do header */
 
-    background: linear-gradient(135deg, #8844ee, #B07DFB); /* criando um gradiente entre as cores de 135 graus*/
+    background: linear-gradient(135deg, #8844ee, #B07DFB); /* criando um 
+    gradiente entre as cores de 135 graus*/
     padding: 30px; /* preenchimento que será o mesmo tamanho que o gutter do site */
     display: grid; /* dizendo que irá utilizar o gridlayout */
     grid-template-columns: 1fr auto; /* dizendo que o logo irá ter o tamanho de 1fr e que o menu será automático o tamanho */
@@ -115,7 +118,103 @@ img {
 
 .content {
     grid-area: conteudo;
+
+    max-width: 900px; /* definindo max-width para que o texto não fique muito largo */
+    margin: 0 auto; /* centralizando */
+    padding: 30px; /* gap */
+    display: grid; /* iniciando grid layout */
+    grid-template-columns: 1fr 1fr; /* o grid irá usar duas colunas do mesmo tamanho */
+    grid-gap: 30px; /* espaço entre os itens */
 }
+
+.ponta-ponta { /* conteúdos que irão pegar duas colunas */
+    grid-column: 1 / -1; /* definindo que esse item irá pegar duas colunas, porém não é colocado 3, pois caso aumentar as colunas do site, continuara pegando todas as colunas */
+}
+
+.lobinho-1 {
+    grid-row: span 2; /* esse item irá se expandir por duas linhas, também poderia colocar 3 / 5, porém caso aumentasse o número de linhas do site (conteúdo) iria quebrar e ter que alterar sempre */
+    align-self: end; /* alinhando o item na vertical, align self sempre é usado no grid item */
+}
+
+.lobinho-2 {
+    align-self: end; /* alinhando o item na vertical, align self sempre é usado no grid item */
+}
+
+/* Estilos Content */
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+    letter-spacing: -0.005em; /* faz uma redução mínima entre o espaçamentos das letras */
+    color: rgba(0, 0, 0, .7) /* preto puro, porém com 70% de opacidade para criar um tom de cinza */
+}
+
+.info p + p { /* pegando o segundo p */
+    margin-top: 30px;
+}
+
+.titulo {
+    color: #B07DFB;
+}
+
+.titulo h1 {
+    font-size: 4em;
+    line-height: 1em;
+    font-weight: 700; /* colocando mesmo valor da fonte que está sendo usada do Google Fonts */
+}
+
+.titulo span {
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+.detalhes {
+    display: flex; /* usando flexbox para ficar lado a lado */
+    align-items: flex-start; /* alinhando ao início na vertical */
+}
+
+.detalhes div {
+    width: 80px;
+
+    text-align: center;
+
+    background: linear-gradient(135deg, #8844ee, #B07DFB); /* criando um 
+    gradiente entre as cores de 135 graus*/
+    border-radius: 6px; /* arredondando as bordas */
+    box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, .15); /* primeiro distãncia da sombra na horizontal, segundo valor a distância na vertical, o terceiro é o blur o quanto borrada a sombra deve ser e o quarto é o tamanho da sombra, isso influencia na visualização dos outros itens */
+
+   
+}
+
+.detalhes span {
+    display: block; /* alterando para quebrar linha */
+    color: #B07DFB;
+}
+
+.detalhes > div:first-child { /* pegando a div que está dentro de detalhes e seu primeiro filho */
+    margin-right: 30px; 
+}
+
+.detalhes .numero {
+    font-size: 3em;
+    color: #B07DFB;
+    margin: 10px auto;
+    line-height: 1em;
+}
+
+.detalhes .rotulo {
+    /*color: #fff;*/
+    font-size: 1.2em;
+    font-style: italic;
+    background-color: #fff;
+    border-radius: 0 0 6px 6px; /* criando apenas nas partes de baixo */
+    padding: 5px 0;
+
+    position: relative; /* usando position relative para poder posicionar o item para cobrir a parte roxa que está ficando */
+    top: 2px;
+}
+
+/* Fim Estilos Content */
 
 /* Fim Conteúdo */
 
@@ -123,6 +222,11 @@ img {
 
 .anuncios {
     grid-area: anuncios;
+    background-color: #FAFBFC;
+    display: grid; /* será utilizado o grid layout */
+    align-content: start; /* alinhando o conteúdo ao início na vertical */
+    padding: 30px; /* gap padrão para separar os itens que está sendo usado no site */
+    grid-gap: 30px; /* adicionando gap de 30px para separar as imagens dos anúncios */
 }
 
 /* Fim Anúncios */
@@ -131,6 +235,15 @@ img {
 
 .footer {
     grid-area: footer;
+    background: linear-gradient(135deg, #8844ee, #B07DFB); /* criando um 
+    gradiente entre as cores de 135 graus*/
+}
+
+.footer p {
+    color: #fff;
+    text-align: center;
+    font-size: 1.125em;
+    padding: 30px;
 }
 
 /* Fim Footer */
