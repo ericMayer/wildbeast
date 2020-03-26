@@ -179,7 +179,7 @@ p {
     text-align: center;
 
     background: linear-gradient(135deg, #8844ee, #B07DFB); /* criando um 
-    gradiente entre as cores de 135 graus*/
+    gradiente entre as cores de 135 graus, vai mais o menos na diagonal da cur mais escura para a mais clara */
     border-radius: 6px; /* arredondando as bordas */
     box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, .15); /* primeiro distãncia da sombra na horizontal, segundo valor a distância na vertical, o terceiro é o blur o quanto borrada a sombra deve ser e o quarto é o tamanho da sombra, isso influencia na visualização dos outros itens */
 
@@ -212,6 +212,46 @@ p {
 
     position: relative; /* usando position relative para poder posicionar o item para cobrir a parte roxa que está ficando */
     top: 2px;
+}
+
+.roxinho {
+    font-size: 1em;
+    color: #B07DFB;
+    max-width: 16em;
+}
+
+.citacao, .atributos {
+
+    align-self: flex-start;
+    background: linear-gradient(135deg, #8844ee, #B07DFB); /* veem da posição de 135 graus que seria mais o menos a diagonal de cima para baixo e vai da cor mais forte para a mais fraca */
+
+    box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, .15); /* 5px para direita e 5 px para baixo, 15px que será a a sombra, e não ira expandir a sombra para outras partes da tela e por último cor da sombra e a opacidade em 15% */
+
+    border-radius: 6px; /* borda arredondada */
+    padding: 30px;
+    
+}
+
+.citacao p {
+    font-size: 1.8em; /* alinha ao centro ao container interno do p */
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto; /* para alinhar ao centro do container que está o texto */
+    color: white;
+    font-style: italic;
+}
+
+.atributos li {
+    font-size: 1.2em;
+    color: #fff;
+    font-family: Courier, monospace;
+    padding: 15px;
+}
+
+.atributos li + li { 
+    /* falando com um li que veem após um li, então o primeiro e último não são considerado */
+    border-top: solid 2px #B07DFB;
+
 }
 
 /* Fim Estilos Content */
