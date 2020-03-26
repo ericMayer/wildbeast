@@ -41,6 +41,33 @@ img {
         "footer footer footer"; /* criando as áreas principais do site, onde primeiro virá o cabeçalho depois a sidenav, depois conteudo e anuncio, por último o footer */
 }
 
+@media only screen and (max-width: 1200px) { /* primeiro breakpoint, seria um tablet */
+
+    .estrutura {
+        grid-template-areas: /* foi deixado com três colunas o site, porém seria possível deixar com duas e apenas seria necessário o template-columns, ambos trazem o mesmo resultado */
+        "header header header"
+        "sidenav conteudo conteudo"
+        "sidenav anuncios anuncios"
+        "footer footer footer"; /* criando as áreas principais do site, onde primeiro virá o cabeçalho depois a sidenav, depois conteudo e anuncio, por último o footer */
+    }
+
+}
+
+@media only screen and (max-width: 760px) { /* breakpoint de celular */
+
+    .estrutura {
+        /* alterando a estrutura do grid para uma coluna apenas */
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "header"
+            "sidenav"
+            "conteudo"
+            "anuncios"
+            "footer";
+        
+    }
+}
+
 /* Fim Grid Geral */
 
 /* Header */
