@@ -110,6 +110,24 @@ img {
     margin-left: 30px; /* adicionado margem que irá ser no segundo item li */
 }
 
+@media only screen and (max-width: 760px) {
+    .header {
+        grid-template-columns: auto; /* apenas uma coluna com tamanho automático */
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .header nav a {
+        font-size: 1em;
+    }
+
+    .header nav li + li { /* adjacente irá sempre pegar depois do primeiro li  */
+        margin-left: 10px; /* adicionado margem que irá ser no segundo item li */
+    }
+}
+
 /* Fim Header */
 
 /* Sidenav */
@@ -139,6 +157,57 @@ img {
     background-color: #B07DFB;
 }
 
+@keyframes seta { /* criando a animação da seta */
+
+    /* a animação irá mover a seta de 30px da direita para 20px da direita */
+    from {
+        right: 30px;
+    }
+    
+    to {
+        right: 20px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+
+    .sidenav {
+        padding: 0 30px; /* mantendo padding para os lados que é o gap usado no site, tirado o de cima e baixo para não  */
+        overflow-x: auto; /* o que estou o container no eixo x na horizontal, isso cria a barra direto na sidenav */
+        -webkit-overflow-scrolling: touch; /* para safari e google chrome, para que seja reconhecendo a rolagem pelo touch */
+        -ms-overflow-style: -ms-autohiding-scrollbar; /* quando estiver em dispositivos da microsoft a barra será escondida */
+        
+        position: relative; /* para que no pseudo element after que possa alinhar a seta usando position absolute, pois sem o relative ele considera o body como pai e usa ele para alinhar */
+    }
+
+    .sidenav::after {
+        content: '→';
+        position: absolute;
+        top: 5px;
+        right: 30px;
+
+        color: rgba(0, 0, 0, .3); /* opacidade transparência de 30% */
+
+        animation: seta .5s ease-in .0s infinite alternate; /* chamando a animação criada, velocidade de 5 segundos, a animação será animada que começa um pouco mais rápido e depois fica mais lento, 0 segundos para começar, roda de forma infinita e alternado para não só ir do 30px para o 20px e voltar do 20px para o 30px */
+
+    }
+
+    .sidenav ul {
+        display: flex; /* usando flexbox para ficar um do lado do outro */
+        
+    }
+
+    .sidenav li {
+        flex: 1 0 60px; /* defini que os itens irão crescer (grow), não irão diminuir (shrink) e terá uma base de 60px, tamanho mínimo do ícone, abaixo disso começa  a zoar a imagem */
+    }
+
+    .sidenav li a {
+        margin: 30px 30px 30px 0; /* separando os itens e colocando a margem para cima também, apenas não é adicionado no lado esquerdo */
+    }
+
+
+}
+
 /* Fim Sidenav */
 
 /* Conteúdo */
@@ -152,6 +221,14 @@ img {
     display: grid; /* iniciando grid layout */
     grid-template-columns: 1fr 1fr; /* o grid irá usar duas colunas do mesmo tamanho */
     grid-gap: 30px; /* espaço entre os itens */
+}
+
+@media only screen and (max-width: 600px) {
+    /* será usado um breakpoint diferente, pois abaixo de 600px que o site não fica bom e precisa ter uma quebra */
+
+    .content {
+        grid-template-columns: auto; /* será uma coluna com tamanho automático */
+    }
 }
 
 .ponta-ponta { /* conteúdos que irão pegar duas colunas */
@@ -294,6 +371,8 @@ p {
     align-content: start; /* alinhando o conteúdo ao início na vertical */
     padding: 30px; /* gap padrão para separar os itens que está sendo usado no site */
     grid-gap: 30px; /* adicionando gap de 30px para separar as imagens dos anúncios */
+
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* o auto-fit preenche as colunas colocando uma do lado da outra respeitando o tamanho mínimo, por exemplo, se não tiver espaço será 150px e se tiver aumenta até 1fr, o auto-fill iria criar o máximo de colunas possíveis com 150px, no auto-fit quando não foi mais possível ter duas colunas de 150px no mínimo ele irá criar uma nova linha e ficará de uma coluna só */
 }
 
 /* Fim Anúncios */
